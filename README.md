@@ -1,3 +1,3 @@
 # zhedaPTA
 ### 计算机408考研
-#### 范围：DAlgorithm
+#### 范围：DS；Algorithm
