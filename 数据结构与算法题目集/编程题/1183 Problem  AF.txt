@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+struct stu
+{
+    int id;
+    char name[10]="\0";  //字符串操作整体不是很熟练
+    int year;
+    int month;
+    int math;
+    int eng;
+    int c;
+};
+
+int main(){
+    int num=0;
+    scanf("%d",&num);
+    getchar();
+    struct stu *a=(struct stu*)malloc(sizeof(struct stu)*num);
+    float *avg=(float*)malloc(sizeof(float)*num);
+    for(int i = 0;i < num;i++){/*%c前面要加空格, 不然输入时会将空格赋给%c*/
+        scanf("%d %s %d %d %d %d %d",&a[i].id,a[i].name,&a[i].year,&a[i].month,&a[i].math,&a[i].eng,&a[i].c);
+        avg[i]=(0.0+a[i].math+a[i].eng+a[i].c)/3;
+    }
+    for(int i = 0;i < num;i++){
+        printf("%d %s %d/%d %d %d %d %.0f\n",a[i].id,a[i].name,a[i].year,a[i].month,a[i].math,a[i].eng,a[i].c,avg[i]);  
+    }
+    free(avg); //malloc申请了，处理完了，记得要释放内存空间
+    free(a);
+    return 0;
+}
