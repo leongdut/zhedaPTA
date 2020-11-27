@@ -1,0 +1,57 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <math.h>
+using namespace std;
+//longlong 在此情况下也有可能会溢出，所以必须选择一个较小值来进行排列组合，进行运算优化
+unsigned long long find(int a,int b){
+  unsigned long long m=1,n=1;
+  for (int i = 1; i <=b; i++)
+  {
+    m*=a;
+    a--;
+    n*=i;
+  }
+ unsigned long long cc=m/n;
+  return (cc);
+  
+}
+int main(){
+  int num;
+  int a,b;
+  cin>>num;
+  getchar();
+  if(num>0){ 
+      while(num--){
+        cin>>a>>b;
+        getchar();
+        if(a>=1&&b>=0&&a<=30&&b<=30){
+          if(a<b){
+            cout<<0;
+            if(num!=0){
+              cout<<endl;
+            }
+          }
+          else{
+            
+              if(b==0||a==b){
+                cout<<1;
+                if(num!=0){
+                  cout<<endl;
+                }
+                continue;
+              }
+
+              int temp=b>(a-b)?(a-b):b;
+              unsigned long long c=find(a,temp);
+              cout<<c;
+              if(num!=0){
+                  cout<<endl;
+              }
+          
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+#include<iostream>
+#include<stdio.h>
+#include<vector>
+
+using namespace std;
+
+
+int main(){
+	int n;
+	while(scanf("%d",&n) != EOF){
+		if(n%2==0 || n==1){
+			printf("2^? mod %d = 1\n",n); 
+		}
+		else{
+			int x=2;
+			int c=1;
+			while(x%n != 1){
+				x=x%n*2;
+				c++; 
+			}
+			printf("2^%d mod %d = 1\n",c,n); 
+		}
+	}
+	return 0;
+} 

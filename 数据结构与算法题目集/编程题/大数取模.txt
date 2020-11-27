@@ -1,0 +1,19 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <cstring>
+#include <math.h>
+using namespace std;
+//如果两个大数互相取模呢？  下面抄的，分析思路过程中没有哪个操作可以遍历化
+int main(){
+    char a[1010];//大数数组化
+    int b;
+    while(cin>>a>>b){
+        int sum=0;
+        for(int i = 0;i <strlen(a);i++){
+           sum=(sum*10+a[i]-'0')%b; 
+        }
+        cout<<sum<<endl;
+
+    }
+    }

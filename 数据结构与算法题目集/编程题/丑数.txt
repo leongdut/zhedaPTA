@@ -1,0 +1,60 @@
+//评价这个算法：有一个基本盘数字，每次这个基本盘都会往前移动，移动的指标是每次从这个基本盘中推出一个最小值，这个托出最小值的基本盘的数就会往前移动，使得整体往前移动
+#include<stdio.h>
+int a[300000];
+int s(int a,int b,int c,int d)
+{
+	if(a>b)
+		a=b;
+	if(a>c)
+		a=c;
+	if(a>d)
+		a=d;
+	return a;	
+}
+int main()
+{
+	int i,j,k,l,m,n,t1,t2,t3,t4,t;
+	t1=t2=t3=t4=1;
+	a[1]=1;
+	for(i=2;i<=6000;i++)
+	{
+		a[i]=s(a[t1]*2,a[t2]*3,a[t3]*5,a[t4]*7);
+		if(a[i]==a[t1]*2) 
+		{
+            t1++;
+        }
+        if(a[i]==a[t2]*3) 
+		{
+            t2++;
+        }
+        if(a[i]==a[t3]*5) 
+		{
+            t3++;
+        }
+        if(a[i]==a[t4]*7) 
+		{
+            t4++;
+        }
+	}
+	while(scanf("%d",&n),n)
+	{
+		if(n%10==1&&n%100!=11)
+		{
+			printf("The %dst humble number is %d.\n",n,a[n]);
+		}
+		else if(n%10==2&&n%100!=12)
+		{
+			printf("The %dnd humble number is %d.\n",n,a[n]);
+		}
+		else if(n%10==3&&n%100!=13)
+		{
+			printf("The %drd humble number is %d.\n",n,a[n]);
+		}
+		else
+		{
+			printf("The %dth humble number is %d.\n",n,a[n]);
+		}
+	}
+ 
+	return 0;
+}

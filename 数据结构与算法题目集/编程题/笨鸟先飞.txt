@@ -1,0 +1,27 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <math.h>
+using namespace std;
+
+int main(){
+  int num,a;
+  long long sum=0;
+  int temp=1;
+  cin>>num;
+  getchar();
+  while(num--){
+    cin>>a;
+    getchar();
+    if(a>0){
+      for(int i = 1;i <=a;i++){
+        temp=1+2*(i-1);
+        sum+=temp;
+      }
+      cout<<(sum%10000)<<endl;
+      sum=0;
+      continue;
+    }
+  }
+}

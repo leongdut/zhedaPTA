@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+//cin遇到空格和换行符就停下去，由getchar()来吸收
+//输入一整行数据其实停留在输入流中，那么你需要在字符流中用适当的输入代码从里面取出来。
+using namespace std;
+
+int main(){
+    int T=0;
+    string s;
+    scanf("%d",&T);
+    getchar();
+    while(T--){
+        string a;
+        while(cin>>a){
+            if(a[0]>='a'&&a[0]<='z'){
+                printf("%c",a[0]-32);
+            }
+            else{
+                printf("%c",a[0]);
+            }
+            char ch=getchar();
+            if(ch=='\n'){
+                break;
+            }
+        }
+       printf("\n");
+    }
+    return 0;
+}
